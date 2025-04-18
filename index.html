@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulario G-28 con Vista Previa</title>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="container-fluid h-100">
+      <div class="row h-100">
+        <div class="col-md-6 form-column border-end">
+          <h3 class="text-center my-3 sticky-top bg-white py-2">
+            Formulario G-28
+          </h3>
+
+          <div class="form-section">
+            <h5>Parte 1: Información del Cliente/Representado</h5>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Apellido (Family Name)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt1Line2a_FamilyName"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Nombre (Given Name)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt1Line2b_GivenName"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Segundo Nombre (Middle Name)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt1Line2c_MiddleName"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Número de Cuenta USCIS Online</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Pt1Line1_USCISOnlineAcctNumber"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label"
+                >Nombre de Organización (si aplica)</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Line2b_NameofOrganization"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Fecha de Expiración (si aplica)</label>
+              <input type="date" class="form-control" id="Line2c_DateExpires" />
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h5>Parte 1: Dirección del Cliente</h5>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="mb-3">
+                  <label class="form-label">Número y Nombre de Calle</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line3a_StreetNumber"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Apt/Ste/Flr #</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line3b_AptSteFlrNumber"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line3b_Unit_0"
+                />
+                <label class="form-check-label">Apt</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line3b_Unit_1"
+                />
+                <label class="form-check-label">Ste</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line3b_Unit_2"
+                />
+                <label class="form-check-label">Flr</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="mb-3">
+                  <label class="form-label">Ciudad/Pueblo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line3c_CityOrTown"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Estado</label>
+                  <select class="form-select" id="Line3d_State">
+                    <option value="">Seleccionar</option>
+                    <option value="AA">Armed Forces Americas</option>
+                    <option value="AE">Armed Forces Europe</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AP">Armed Forces Pacific</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="AS">American Samoa</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DC">District of Columbia</option>
+                    <option value="DE">Delaware</option>
+                    <option value="FL">Florida</option>
+                    <option value="FM">Federated States of Micronesia</option>
+                    <option value="GA">Georgia</option>
+                    <option value="GU">Guam</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="IA">Iowa</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MD">Maryland</option>
+                    <option value="ME">Maine</option>
+                    <option value="MH">Marshall Islands</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MP">Northern Mariana Islands</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MT">Montana</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NY">New York</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="PW">Palau</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VA">Virginia</option>
+                    <option value="VI">U.S. Virgin Islands</option>
+                    <option value="VT">Vermont</option>
+                    <option value="WA">Washington</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WY">Wyoming</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label class="form-label">Código Postal</label>
+                  <input type="text" class="form-control" id="Line3e_ZipCode" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Provincia (si aplica)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line3f_Province"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Código Postal (Int.)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line3g_PostalCode"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">País</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line3h_Country"
+                    value="United States"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Teléfono Diurno</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="Line4_DaytimeTelephoneNumber"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Teléfono Móvil</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="Line7_MobileTelephoneNumber"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Fax</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="Pt1ItemNumber7_FaxNumber"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="Line6_EMail" />
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h5>Parte 2: Información del Abogado/Representante</h5>
+            <div class="mb-3">
+              <label class="form-label">Nombre del Abogado/Representante</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Line3_NameofAttorneyOrRep"
+              />
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Autoridad de Licencia</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt2Line1a_LicensingAuthority"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Número de Barra</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt2Line1b_BarNumber"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nombre de la Firma/Organización</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Pt2Line1d_NameofFirmOrOrganization"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Estudiante de Derecho</label>
+              <input type="text" class="form-control" id="Line4b_LawStudent" />
+            </div>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Checkbox1dAm"
+                />
+                <label class="form-check-label"
+                  >Soy el abogado/representante acreditado</label
+                >
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Checkbox1dAmNot"
+                />
+                <label class="form-check-label"
+                  >NO soy el abogado/representante acreditado</label
+                >
+              </div>
+            </div>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="CheckBox1"
+                /><label>CheckBox1</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="CheckBox2"
+                /><label>CheckBox2</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="CheckBox3"
+                /><label>CheckBox3</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="CheckBox4"
+                /><label>CheckBox4</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h5>Parte 3: Información del Caso</h5>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Número de Recibo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line4_ReceiptNumber"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Número A</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line9_ANumber"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label"
+                >Número de Cuenta USCIS Online (Parte 3)</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Pt3Line8_USCISOnlineAcctNumber"
+              />
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Apellido (Parte 3)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line5a_FamilyName_0"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Nombre (Parte 3)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line5b_GivenName_0"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Segundo Nombre (Parte 3)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line5c_MiddleName_0"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Nombre de Entidad</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line7a_NameOfEntity"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Título de Entidad</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line7b_TitleofEntity"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Teléfono Diurno (Parte 3)</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="Line9_DaytimeTelephoneNumber"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Teléfono Móvil (Parte 3)</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="Line10_MobileTelephoneNumber"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Correo Electrónico (Parte 3)</label>
+              <input type="email" class="form-control" id="Line11_EMail" />
+            </div>
+            <h6 class="mt-4">Dirección (Parte 3)</h6>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="mb-3">
+                  <label class="form-label">Número y Nombre de Calle</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line12a_StreetNumberName"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Apt/Ste/Flr #</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line12b_AptSteFlrNumber"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line12b_Unit_0"
+                /><label>Apt</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line12b_Unit_1"
+                /><label>Ste</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line12b_Unit_2"
+                /><label>Flr</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="mb-3">
+                  <label class="form-label">Ciudad/Pueblo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line12c_CityOrTown"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Estado</label>
+                  <select class="form-select" id="Line12d_State">
+                    <option value="">Seleccionar</option>
+                    <option value="AA">Armed Forces Americas</option>
+                    <option value="AE">Armed Forces Europe</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AP">Armed Forces Pacific</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="AS">American Samoa</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DC">District of Columbia</option>
+                    <option value="DE">Delaware</option>
+                    <option value="FL">Florida</option>
+                    <option value="FM">Federated States of Micronesia</option>
+                    <option value="GA">Georgia</option>
+                    <option value="GU">Guam</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="IA">Iowa</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MD">Maryland</option>
+                    <option value="ME">Maine</option>
+                    <option value="MH">Marshall Islands</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MP">Northern Mariana Islands</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MT">Montana</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NY">New York</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="PW">Palau</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VA">Virginia</option>
+                    <option value="VI">U.S. Virgin Islands</option>
+                    <option value="VT">Vermont</option>
+                    <option value="WA">Washington</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WY">Wyoming</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label class="form-label">Código Postal</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line12e_ZipCode"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Provincia</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line12f_Province"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Código Postal (Int.)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line12g_PostalCode"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">País</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line12h_Country"
+                    value="United States"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h5>Parte 3: Agencias Involucradas</h5>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="Line1a_USCIS"
+                />
+                <label class="form-check-label">USCIS</label>
+              </div>
+              <input
+                type="text"
+                class="form-control mt-2"
+                id="Line1b_ListFormNumber"
+                placeholder="Listar Número de Formulario"
+              />
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="Line2a_ICE"
+                />
+                <label class="form-check-label">ICE</label>
+              </div>
+              <input
+                type="text"
+                class="form-control mt-2"
+                id="Line2b_ListMatter"
+                placeholder="Listar Asunto"
+              />
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="Line3a_CBP"
+                />
+                <label class="form-check-label">CBP</label>
+              </div>
+              <input
+                type="text"
+                class="form-control mt-2"
+                id="Line3b_ListSpecificMatter"
+                placeholder="Listar Asunto Específico"
+              />
+            </div>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line4_Checkbox_0"
+                /><label>Opción 1</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line4_Checkbox_1"
+                /><label>Opción 2</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line4_Checkbox_2"
+                /><label>Opción 3</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line4_Checkbox_3"
+                /><label>Opción 4</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Line4_Checkbox_4"
+                /><label>Opción 5</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h5>Parte 4: Firma y Certificación</h5>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="mb-3">
+                  <label class="form-label"
+                    >Firma del Cliente/Representado</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line1_Signature"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Fecha</label>
+                  <input type="text" class="form-control" id="Line3_Date" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="mb-3">
+                  <label class="form-label"
+                    >Firma del Estudiante de Derecho</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Line2_SignatureStudent"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Fecha Firma</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt5Line2b_DateofSignature"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="mb-3">
+                  <label class="form-label">Firma del Solicitante</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="P5_Line6a_SignatureofApplicant"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Fecha Firma</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt4Line2b_DateofSignature"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Pt4Line2a_CheckBox2a"
+                /><label>Certificación 1</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Pt4Line2b_CheckBox2b"
+                /><label>Certificación 2</label>
+              </div>
+              <div class="checkbox-item">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="Pt4Line2c_CheckBox2c"
+                /><label>Certificación 3</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h5>Parte 9: Información Adicional</h5>
+            <div class="row">
+              <div class="col-md-3">
+                <label class="form-label small">Página</label
+                ><input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line3a_PageNumber"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label small">Parte</label
+                ><input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line3b_PartNumber"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label small">Ítem</label
+                ><input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line3c_ItemNumber"
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label small">Info</label
+                ><input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line3d_AdditionalInfo"
+                />
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line4a_PageNumber"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line4b_PartNumber"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line4c_ItemNumber"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line4d_AdditionalInfo"
+                />
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line5a_PageNumber"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line5b_PartNumber"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line5c_ItemNumber"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line5d_AdditionalInfo"
+                />
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line6a_PageNumber_0"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line6b_PartNumber_0"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line6c_ItemNumber_0"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line6d_AdditionalInfo_0"
+                />
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line6a_PageNumber_1"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line6b_PartNumber_1"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line6c_ItemNumber_1"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Pt9Line6d_AdditionalInfo_1"
+                />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Apellido (Parte 9)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line5a_FamilyName_1"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Nombre (Parte 9)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line5b_GivenName_1"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Segundo Nombre (Parte 9)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Pt3Line5c_MiddleName_1"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h5>Códigos de Barras (PDF417)</h5>
+            <p class="text-muted">
+              Estos campos son normalmente generados automáticamente por el
+              sistema al guardar el PDF final.
+            </p>
+            <input type="hidden" id="PDF417BarCode1_0" />
+            <input type="hidden" id="PDF417BarCode1_1" />
+            <input type="hidden" id="PDF417BarCode1_2" />
+            <input type="hidden" id="PDF417BarCode1_3" />
+          </div>
+
+          <div
+            class="button-container d-grid gap-2 d-md-flex justify-content-md-end"
+          >
+            <button id="updatePreviewBtn" class="btn btn-secondary">
+              Actualizar Vista Previa
+            </button>
+            <button id="downloadBtn" class="btn btn-primary">
+              Generar PDF Completo
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-6 pdf-column">
+          <h3 class="text-center my-3 sticky-top bg-white py-2">
+            Vista Previa PDF
+          </h3>
+          <div id="pdf-viewer-container" class="h-100 p-2">
+            <iframe id="pdf-preview" title="Vista previa del PDF G-28"></iframe>
+            <div
+              id="loading-indicator"
+              class="text-center mt-5"
+              style="display: none"
+            >
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Cargando...</span>
+              </div>
+              <p>Procesando PDF...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="fieldMappings.js"></script>
+    <script type="module" src="config.js"></script>
+  </body>
+</html>
