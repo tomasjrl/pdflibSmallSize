@@ -74,6 +74,8 @@ async function getPdfBytes() {
 
     for (const [htmlId, pdfFieldName] of Object.entries(fieldMappings)) {
       try {
+        if (pdfFieldName.includes("AptSteFlrNumber")) continue;
+
         const field = form.getField(pdfFieldName);
         if (!field) {
           console.warn(`Campo PDF no encontrado: ${pdfFieldName}`);
@@ -88,7 +90,14 @@ async function getPdfBytes() {
 
         let value = htmlElement.value || htmlElement.textContent || "";
 
-        if (field.constructor.name === "PDFTextField") {
+        if (field.constructor.name === "PDFCheckBox") {
+          if (htmlElement.checked) {
+            field.check();
+          } else {
+            field.uncheck();
+          }
+          field.updateAppearances(helveticaFont);
+        } else if (field.constructor.name === "PDFTextField") {
           if (pdfFieldName.includes("AdditionalInfo")) {
             const fontSize = 8.2;
             const adjustment = 10;
@@ -112,9 +121,6 @@ async function getPdfBytes() {
               field.setFontSize(fontSize);
               field.setFont(helveticaFont);
             } else {
-              console.warn(
-                `No se pudo obtener el widget/rectángulo para el campo ${pdfFieldName}. Usando setText sin envolver.`
-              );
               field.setText(value);
               field.setFontSize(fontSize);
               field.setFont(helveticaFont);
@@ -123,11 +129,6 @@ async function getPdfBytes() {
           } else {
             field.setText(value);
           }
-        } else if (
-          field.constructor.name === "PDFCheckBox" &&
-          typeof field.setChecked === "function"
-        ) {
-          field.setChecked(htmlElement.checked);
         } else if (
           (field.constructor.name === "PDFDropdown" ||
             field.constructor.name === "PDFRadioGroup") &&
@@ -148,6 +149,28 @@ async function getPdfBytes() {
           `Error procesando el campo ${htmlId} (${pdfFieldName}):`,
           err
         );
+      }
+    }
+
+    for (const [htmlId, pdfFieldName] of Object.entries(fieldMappings)) {
+      if (!pdfFieldName.includes("AptSteFlrNumber")) continue;
+
+      try {
+        const field = form.getField(pdfFieldName);
+        if (!field) {
+          console.warn(`Campo AptSteFlrNumber no encontrado: ${pdfFieldName}`);
+          continue;
+        }
+
+        const htmlElement = document.getElementById(htmlId);
+        if (!htmlElement) {
+          console.warn(`Input AptSteFlrNumber no encontrado: ${htmlId}`);
+          continue;
+        }
+
+        field.setText(htmlElement.value || "");
+      } catch (err) {
+        console.warn(`Error en campo AptSteFlrNumber ${htmlId}:`, err);
       }
     }
 
