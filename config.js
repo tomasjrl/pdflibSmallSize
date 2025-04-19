@@ -99,8 +99,8 @@ async function getPdfBytes() {
           field.updateAppearances(helveticaFont);
         } else if (field.constructor.name === "PDFTextField") {
           if (pdfFieldName.includes("AdditionalInfo")) {
-            const fontSize = 8.2;
-            const adjustment = 10;
+            const fontSize = 8.1;
+            const adjustment = 4;
 
             const widgets = field.acroField.getWidgets();
             if (widgets && widgets.length > 0) {
